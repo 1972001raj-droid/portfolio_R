@@ -60,9 +60,9 @@ const DEFAULT_NODES: ReasoningNode[] = [
         tokens: 168,
         summary: 'Parsed natural language prompt into structured typed AST and identified execution constraints.',
         details: [
-            'Extracted target DAG specifications and telemetry metrics requirement',
+            'Extracted target DAG specifications and runtime execution constraints',
             'Determined zero-latency degradation budget (< 150ms)',
-            'Isolated component interfaces for AiThinkingDrawer and TelemetryHud'
+            'Isolated component interface for AiThinkingDrawer'
         ],
         codeSnippet: `const ast = parseTokens(queryPrompt);\nvalidateTypeSafety(ast.params);`,
         dependencies: []

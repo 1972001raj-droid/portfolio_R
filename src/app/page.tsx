@@ -23,7 +23,7 @@ import {
   exploringTopics,
 } from "@/data/site";
 import { professionalProjects, projects } from "@/data/projects";
-import { AiThinkingDrawer, TelemetryHud } from "@/components";
+import { AiThinkingDrawer } from "@/components";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -245,15 +245,6 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-
-        <div className="reveal mx-auto max-w-shell px-4 pb-12 sm:px-6 lg:px-8">
-          <TelemetryHud
-            metrics={[
-              { label: "Latency", value: "38ms" },
-              { label: "WCAG", value: "4.8:1", unit: "AA" },
-            ]}
-          />
-        </div>
 
         <section
           id="about"
