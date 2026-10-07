@@ -6,17 +6,11 @@ import {
     ShieldCheck,
     Gauge,
     Cpu,
-    Wifi,
     CheckCircle2,
     ChevronDown,
     ChevronUp,
     RefreshCw,
-    Sliders,
-    Sparkles,
-    Radio,
-    Terminal,
-    Info,
-    ExternalLink
+    Radio
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
