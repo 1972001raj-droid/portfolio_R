@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --c-bg: 10 12 18;
+    --c-elev: 17 20 28;
+    --c-surface: 23 27 35;
+    --c-ink: 238 242 246;
+    --c-muted: 148 163 184;
+    --c-dim: 96 99 111;
+    --c-line: 40 46 58;
+    --c-line-strong: 84 94 112;
+    --c-accent: 110 158 255;
+    --c-accent-ink: 9 13 23;
+}
+
+:root[data-theme='light'] {
+    --c-bg: 246 241 236;
+    --c-elev: 255 255 255;
+    --c-surface: 244 240 234;
+    --c-ink: 24 29 38;
+    --c-muted: 74 87 103;
+    --c-dim: 110 119 133;
+    --c-line: 219 218 216;
+    --c-line-strong: 172 170 166;
+    --c-accent: 46 97 216;
+    --c-accent-ink: 244 247 255;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: rgb(var(--c-bg));
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, rgba(110, 158, 255, 0.2), transparent 30%),
+        linear-gradient(180deg, rgb(var(--c-bg)) 0%, rgb(var(--c-bg)) 100%);
+    color: rgb(var(--c-ink));
+    font-family: var(--font-geist-sans), sans-serif;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(circle at center, black 35%, transparent 92%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+::selection {
+    background: rgba(110, 158, 255, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@layer base {
+    body {
+        @apply antialiased;
+    }
+
+    a {
+        @apply no-underline;
+    }
+}
+
+@layer components {
+    .page-shell {
+        @apply mx-auto max-w-shell px-4 sm:px-6 lg:px-8;
+    }
+
+    .section-label {
+        @apply text-[10px] font-medium uppercase tracking-[0.32em] text-accent;
+    }
+
+    .grid-overlay {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 32px 32px;
+        mask-image: radial-gradient(circle at center, black 45%, transparent 90%);
+    }
+
+    .editorial-card {
+        box-shadow: 0 32px 72px -44px rgba(15, 25, 42, 0.82);
+    }
+
+    .floating-panel {
+        position: absolute;
+        inset: auto auto 1.5rem -1rem;
+        z-index: 3;
+        transform: rotate(-2deg);
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
